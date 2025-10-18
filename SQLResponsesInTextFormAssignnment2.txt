@@ -1,0 +1,11 @@
+3. SELECT Category, Breed, COUNT(*) AS MoreThan3BreedsSold
+FROM Animal, SaleAnimal
+WHERE Category = 'Cat'
+GROUP BY Category, Breed
+HAVING COUNT(Category) > 3
+ORDER BY MoreThan3BreedsSold DESC;
+
+6. SELECT Animal.AnimalID, Category, Breed, ListPrice, SalePrice
+FROM Animal INNER JOIN SaleAnimal ON Animal.AnimalID = SaleAnimal.AnimalID
+WHERE Category = 'Bird'
+(Not Fully finished)

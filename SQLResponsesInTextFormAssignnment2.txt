@@ -9,3 +9,7 @@ ORDER BY MoreThan3BreedsSold DESC;
 FROM Animal INNER JOIN SaleAnimal ON Animal.AnimalID = SaleAnimal.AnimalID
 WHERE Category = 'Bird'
 (Not Fully finished)
+
+7. SELECT City.CityID, City, State
+FROM City LEFT JOIN Customer ON City.CityID = Customer.CityID
+WHERE State = 'KY' AND Address IS NULL AND Phone IS NULL

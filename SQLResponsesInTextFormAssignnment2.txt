@@ -4,7 +4,7 @@ WHERE SaleDate  BETWEEN '01/01/2007' AND '03/31/2007'
 GROUP BY SaleDate, Category
 HAVING COUNT(*) > 1;
 
-2. SELECT SaleDate, Category, SUM(SalePrice) AS SumOfSalePrice, AVG(SalePrice) AS AvgSumOfSalePrice
+2. SELECT Category, SUM(SalePrice) AS SumOfSalePrice, AVG(SalePrice) AS AvgSumOfSalePrice
 FROM Animal, SaleAnimal, Sale
 WHERE SaleDate BETWEEN '10/01/2007' AND '12/31/2007'
 GROUP BY SaleDate, SalePrice, Category
@@ -26,5 +26,6 @@ WHERE Category = 'Bird'
 7. SELECT City.CityID, City, State
 FROM City LEFT JOIN Customer ON City.CityID = Customer.CityID
 WHERE State = 'KY' AND Address IS NULL AND Phone IS NULL;
+
 
 

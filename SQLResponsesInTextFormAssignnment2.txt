@@ -8,7 +8,8 @@ HAVING COUNT(*) > 1;
 FROM Animal, SaleAnimal, Sale
 WHERE SaleDate BETWEEN '10/01/2007' AND '12/31/2007'
 GROUP BY SaleDate, SalePrice, Category
-HAVING COUNT(*) > 1;
+HAVING COUNT(*) > 1
+ORDER BY SumOfSalePrice DESC;
 
 3. SELECT Category, Breed, COUNT(*) AS MoreThan3BreedsSold
 FROM Animal, SaleAnimal
@@ -25,4 +26,5 @@ WHERE Category = 'Bird'
 7. SELECT City.CityID, City, State
 FROM City LEFT JOIN Customer ON City.CityID = Customer.CityID
 WHERE State = 'KY' AND Address IS NULL AND Phone IS NULL;
+
 

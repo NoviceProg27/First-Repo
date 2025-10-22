@@ -24,19 +24,21 @@ WHERE Category IN ('Cat' , 'Dog')
 GROUP BY Employee.EmployeeID, LastName, FirstName
 ORDER BY DogsAndCatsSold DESC;
 
-5. SELECT SaleAnimal.AnimalID, Category, Breed, Cost, SalePrice, SalePrice-Cost AS Profit, SalePrice/Cost AS CostPercentage
+5. SELECT SaleAnimal.AnimalID, Category, Breed, Cost, SalePrice, SalePrice-Cost AS Profit
 FROM SaleAnimal, Animal INNER JOIN AnimalOrderItem ON Animal.AnimalID = AnimalOrderItem.AnimalID
 WHERE (SalePrice/Cost) > 1
-(Almost done, need to see if I can get percentage values)
+ORDER BY Profit DESC;
 
-6. SELECT Animal.AnimalID, Category, Breed, ListPrice, SalePrice
+6. SELECT Animal.AnimalID, Category, Breed, ListPrice, SalePrice , SUM(SalePrice) AS TotalSalePrice
 FROM Animal INNER JOIN SaleAnimal ON Animal.AnimalID = SaleAnimal.AnimalID
 WHERE Category = 'Bird'
-(Not Fully finished)
+GROUP BY Animal.AnimalID, Category, Breed, ListPrice, SalePrice
+ORDER BY TotalSalePrice DESC;
 
 7. SELECT City.CityID, City, State
 FROM City LEFT JOIN Customer ON City.CityID = Customer.CityID
 WHERE State = 'KY' AND Address IS NULL AND Phone IS NULL;
+
 
 
 

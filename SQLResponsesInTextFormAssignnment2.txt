@@ -18,6 +18,11 @@ GROUP BY Category, Breed
 HAVING COUNT(Category) > 3
 ORDER BY MoreThan3BreedsSold DESC;
 
+5. SELECT SaleAnimal.AnimalID, Category, Breed, Cost, SalePrice, SalePrice-Cost AS Profit, SalePrice/Cost AS CostPercentage
+FROM SaleAnimal, Animal INNER JOIN AnimalOrderItem ON Animal.AnimalID = AnimalOrderItem.AnimalID
+WHERE (SalePrice/Cost) > 1
+(Almost done, need to see if I can get percentage values)
+
 6. SELECT Animal.AnimalID, Category, Breed, ListPrice, SalePrice
 FROM Animal INNER JOIN SaleAnimal ON Animal.AnimalID = SaleAnimal.AnimalID
 WHERE Category = 'Bird'
@@ -26,6 +31,7 @@ WHERE Category = 'Bird'
 7. SELECT City.CityID, City, State
 FROM City LEFT JOIN Customer ON City.CityID = Customer.CityID
 WHERE State = 'KY' AND Address IS NULL AND Phone IS NULL;
+
 
 
 
